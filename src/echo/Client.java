@@ -41,9 +41,19 @@ public class Client {
 		InputStreamReader isr = new InputStreamReader(in, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
+		//스캐너 준비
+		//Scanner sc = new Scanner(System.in);
+		InputStream sin = System.in;	//주스트림
+		InputStreamReader sisr = new InputStreamReader(sin, "UTF-8");
+		BufferedReader sbr = new BufferedReader(sisr);
+		
+		
+		//------------------------------------------------------------------
 		while(true) {
 			//메세지 키보드로 입력받기
-			String msg = sc.nextLine();
+//			String msg = sc.nextLine();
+			String msg = sbr.readLine();
+//			int no = Integer.parseInt(sbr.readLine());
 			
 			if("/q".equals(msg)) {
 				break;
@@ -61,7 +71,15 @@ public class Client {
 		}
 		
 		System.out.println("======================");
-		System.out.println("<클라이언트 종료>");
+//		System.out.println("<클라이언트 종료>");
+		
+		//println 스트림
+		OutputStream pout = System.out;
+		OutputStreamWriter posw = new OutputStreamWriter(pout, "UTF-8");
+		BufferedWriter pbw = new BufferedWriter(posw);
+		
+		pbw.write("<클라이언트종료>");
+		
 		//자원정리
 		socket.close();
 		bw.close();

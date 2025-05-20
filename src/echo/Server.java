@@ -62,6 +62,8 @@ public class Server {
 			
 			System.out.println("==========");
 		}
+		//=====================================================//
+		
 		
 		System.out.println("<서버종료>");
 		//자원정리
